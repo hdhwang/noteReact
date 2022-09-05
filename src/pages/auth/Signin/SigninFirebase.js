@@ -1,15 +1,20 @@
 import React from 'react';
 import {Form, Formik} from 'formik';
 import * as yup from 'yup';
+import {Link, useNavigate} from 'react-router-dom';
 import {useIntl} from 'react-intl';
 import IntlMessages from '@crema/utility/IntlMessages';
 import Box from '@mui/material/Box';
 import AppTextField from '@crema/core/AppFormComponents/AppTextField';
 import Checkbox from '@mui/material/Checkbox';
 import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
 import AppInfoView from '@crema/core/AppInfoView';
 import {useAuthMethod} from '@crema/utility/AuthHooks';
 import {Fonts} from 'shared/constants/AppEnums';
+import {AiOutlineGoogle, AiOutlineTwitter} from 'react-icons/ai';
+import {FaFacebookF} from 'react-icons/fa';
+import {BsGithub} from 'react-icons/bs';
 
 const validationSchema = yup.object({
   email: yup
@@ -22,7 +27,12 @@ const validationSchema = yup.object({
 });
 
 const SigninFirebase = () => {
-  const {logInWithEmailAndPassword} = useAuthMethod();
+  const {logInWithEmailAndPassword, logInWithPopup} = useAuthMethod();
+  const navigate = useNavigate();
+
+  const onGoToForgetPassword = () => {
+    navigate('/forget-password', {tab: 'firebase'});
+  };
 
   const {messages} = useIntl();
 
@@ -96,6 +106,19 @@ const SigninFirebase = () => {
                     <IntlMessages id='common.rememberMe' />
                   </Box>
                 </Box>
+                <Box
+                  component='span'
+                  sx={{
+                    color: (theme) => theme.palette.primary.main,
+                    fontWeight: Fonts.MEDIUM,
+                    cursor: 'pointer',
+                    display: 'block',
+                    textAlign: 'right',
+                  }}
+                  onClick={onGoToForgetPassword}
+                >
+                  <IntlMessages id='common.forgetPassword' />
+                </Box>
               </Box>
 
               <div>
@@ -122,6 +145,31 @@ const SigninFirebase = () => {
 
       <Box
         sx={{
+          color: 'grey.500',
+          mb: {xs: 5, md: 7},
+        }}
+      >
+        <span style={{marginRight: 4}}>
+          <IntlMessages id='common.dontHaveAccount' />
+        </span>
+        <Box
+          component='span'
+          sx={{
+            fontWeight: Fonts.MEDIUM,
+            '& a': {
+              color: (theme) => theme.palette.primary.main,
+              textDecoration: 'none',
+            },
+          }}
+        >
+          <Link to='/signup'>
+            <IntlMessages id='common.signup' />
+          </Link>
+        </Box>
+      </Box>
+
+      <Box
+        sx={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
@@ -138,6 +186,54 @@ const SigninFirebase = () => {
             color: (theme) => theme.palette.text.secondary,
           }}
         >
+          <IntlMessages id='common.orLoginWith' />
+        </Box>
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+          }}
+        >
+          <IconButton
+            sx={{
+              p: 2,
+              '& svg': {fontSize: 18},
+              color: (theme) => theme.palette.text.secondary,
+            }}
+            onClick={() => logInWithPopup('google')}
+          >
+            <AiOutlineGoogle />
+          </IconButton>
+          <IconButton
+            sx={{
+              p: 1.5,
+              '& svg': {fontSize: 18},
+              color: (theme) => theme.palette.text.secondary,
+            }}
+            onClick={() => logInWithPopup('facebook')}
+          >
+            <FaFacebookF />
+          </IconButton>
+          <IconButton
+            sx={{
+              p: 1.5,
+              '& svg': {fontSize: 18},
+              color: (theme) => theme.palette.text.secondary,
+            }}
+            onClick={() => logInWithPopup('github')}
+          >
+            <BsGithub />
+          </IconButton>
+          <IconButton
+            sx={{
+              p: 1.5,
+              '& svg': {fontSize: 18},
+              color: (theme) => theme.palette.text.secondary,
+            }}
+            onClick={() => logInWithPopup('twitter')}
+          >
+            <AiOutlineTwitter />
+          </IconButton>
         </Box>
       </Box>
 
