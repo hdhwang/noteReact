@@ -64,11 +64,7 @@ const AuthWrapper = ({children}) => {
                 mb: 4,
               }}
             >
-              Welcome to Crema!
-            </Typography>
-            <Typography>
-              Crema is purely based on Material ui components and follows
-              Material ui guidelines.
+              Welcome to Notepad!
             </Typography>
           </Box>
         </Box>
