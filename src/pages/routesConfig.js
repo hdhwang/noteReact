@@ -10,7 +10,7 @@ const routesConfig = [
     url: '/dashboard',
   },
   {
-    id: 'bankAccount',
+    id: 'bank-account',
     title: '계좌번호 관리',
     messageId: 'sidebar.bankAccount',
     type: 'item',
@@ -34,7 +34,7 @@ const routesConfig = [
     url: '/note',
   },
   {
-    id: 'guestBook',
+    id: 'guest-book',
     title: '결혼식 방명록',
     messageId: 'sidebar.guestBook',
     type: 'item',
@@ -56,7 +56,7 @@ const routesConfig = [
     type: 'group',
     children: [
       {
-        id: 'userAccount',
+        id: 'user-account',
         title: '사용자 관리',
         messageId: 'sidebar.admin.userAccount',
         type: 'item',
@@ -64,7 +64,7 @@ const routesConfig = [
         url: '/admin/user-account',
       },
       {
-        id: 'auditLog',
+        id: 'audit-log',
         title: '감사 로그',
         messageId: 'sidebar.admin.auditLog',
         type: 'item',
@@ -73,29 +73,5 @@ const routesConfig = [
       },
     ],
   },
-  // {
-  //   id: 'app',
-  //   title: 'Sample',
-  //   messageId: 'sidebar.sample',
-  //   type: 'group',
-  //   children: [
-  //     {
-  //       id: 'page-1',
-  //       title: 'Page 1',
-  //       messageId: 'sidebar.sample.page1',
-  //       type: 'item',
-  //       icon: <BiDesktop />,
-  //       url: '/sample/page-1',
-  //     },
-  //     {
-  //       id: 'page-2',
-  //       title: 'Page 2',
-  //       messageId: 'sidebar.sample.page2',
-  //       type: 'item',
-  //       icon: <BiDesktop />,
-  //       url: '/sample/page-2',
-  //     },
-  //   ],
-  // },
 ];
 export default routesConfig;
