@@ -186,6 +186,7 @@ const SigninFirebase = () => {
             color: (theme) => theme.palette.text.secondary,
           }}
         >
+<<<<<<< HEAD
           <IntlMessages id='common.orLoginWith' />
         </Box>
         <Box
@@ -234,6 +235,9 @@ const SigninFirebase = () => {
           >
             <AiOutlineTwitter />
           </IconButton>
+=======
+          {/* <IntlMessages id='common.orLoginWith' /> */}
+>>>>>>> parent of ad0243f (- 로그인 페이지에서 패스워드 찾기, 소셜 로그인 항목 삭제)
         </Box>
       </Box>
 
