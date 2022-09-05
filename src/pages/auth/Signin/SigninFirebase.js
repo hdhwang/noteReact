@@ -234,7 +234,6 @@ const SigninFirebase = () => {
           >
             <AiOutlineTwitter />
           </IconButton>
-          {/* <IntlMessages id='common.orLoginWith' /> */}
         </Box>
       </Box>
 
