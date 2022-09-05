@@ -4,13 +4,28 @@ import {Navigate} from 'react-router-dom';
 import Error403 from './errorPages/Error403';
 import React from 'react';
 import {errorPagesConfigs} from './errorPages';
-import {samplePagesConfigs} from './sample';
+import {dashboardConfigs} from './dashboard';
+import {bankAccountConfigs} from './bankAccount';
+import {serialConfigs} from './serial';
+import {noteConfigs} from './note';
+import {guestBookConfigs} from './guestBook';
+import {lottoConfigs} from './lotto';
+import {adminConfigs} from './admin';
 import {accountPagesConfigs} from './account';
 
 const authorizedStructure = {
   fallbackPath: '/signin',
   unAuthorizedComponent: <Error403 />,
-  routes: [...samplePagesConfigs, ...accountPagesConfigs],
+  routes: [
+    ...dashboardConfigs,
+    ...bankAccountConfigs,
+    ...serialConfigs,
+    ...noteConfigs,
+    ...guestBookConfigs,
+    ...lottoConfigs,
+    ...adminConfigs,
+    ...accountPagesConfigs,
+  ],
 };
 
 const unAuthorizedStructure = {
