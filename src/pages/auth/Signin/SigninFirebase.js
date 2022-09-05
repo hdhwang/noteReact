@@ -138,7 +138,6 @@ const SigninFirebase = () => {
             color: (theme) => theme.palette.text.secondary,
           }}
         >
-          {/* <IntlMessages id='common.orLoginWith' /> */}
         </Box>
       </Box>
 
